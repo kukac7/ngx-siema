@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/LexZhukov/ngx-siema.svg?branch=master)](https://travis-ci.org/LexZhukov/ngx-siema)
+[![Build Status](https://travis-ci.org/lexzhukov/ngx-siema.svg?branch=master)](https://travis-ci.org/LexZhukov/ngx-siema)
 
 # ngx-siema
 
