@@ -47,9 +47,9 @@ import { NgxSiemaOptions } from 'ngx-siema';
   template: `
       <ngx-siema ngxClass="my-siema"
          [options]="options"
-         (onPrev)="prev($event)"
-         (onNext)="next($event)"
-         (onGoTo)="goTo($event)">
+         (prev)="prev($event)"
+         (next)="next($event)"
+         (goTo)="goTo($event)">
     	  <ngx-siema-slide>
     	    <img src="assets/siema--pink.svg">
     	  </ngx-siema-slide>
@@ -105,24 +105,24 @@ import { NgxSiemaComponent } from 'ngx-siema';
     	    <img src="assets/siema--pink.svg">
     	  </ngx-siema-slide>
       </ngx-siema>
-      <button (click)="prev()">Prev</button>
-      <button (click)="next()">Next</button>
-      <button (click)="goTo(2)">GoTo</button>
+      <button (click)="onPrev()">Prev</button>
+      <button (click)="onNext()">Next</button>
+      <button (click)="onGoTo(2)">GoTo</button>
   `
 })
 export class Sample {
     @ViewChild(NgxSiemaComponent) siema;
 
-    prev(numbers: number) {
-        this.siema.prev(numbers);
+    onPrev(numbers: number) {
+        this.siema.onPrev(numbers);
     }
 
-    next(numbers: number) {
-        this.siema.next(numbers);
+    onNext(numbers: number) {
+        this.siema.onNext(numbers);
     }
 
-    goTo(slide: number) {
-        this.siema.goTo(slide);
+    onGoTo(slide: number) {
+        this.siema.onGoTo(slide);
     }
 }
 ```

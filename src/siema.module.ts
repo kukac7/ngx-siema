@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NgxSiemaComponent } from './ngx-siema.component';
-import { NgxSiemaSlideComponent } from './ngx-siema-slide';
+import { NgxSiemaComponent, NgxSiemaSlideComponent } from './siema.component';
 
 @NgModule({
   imports: [

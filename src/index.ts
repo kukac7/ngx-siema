@@ -1,4 +1,2 @@
-export * from './ngx-siema.component';
-export * from './ngx-siema.module';
-export * from './ngx-siema.options';
-export * from './ngx-siema-slide';
+export * from './siema.component';
+export * from './siema.module';
