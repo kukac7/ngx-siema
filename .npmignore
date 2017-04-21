@@ -2,10 +2,12 @@
 # or
 *.ngFactory.ts
 
-/.idea
 /src
 /assets
+/.vscode
 
 .travis.yml
 yarn.lock
 tslint.json
+.editorconfig
+tsconfig.json
