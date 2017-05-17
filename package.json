@@ -6,7 +6,7 @@
   "typings": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LexZhukov/ngx-siema.git"
+    "url": "git+https://github.com/lexzhukov/ngx-siema.git"
   },
   "keywords": [
     "angular",
@@ -18,9 +18,9 @@
   "author": "Alexander Zhukov <lexzhukovpro@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LexZhukov/ngx-siema/issues"
+    "url": "https://github.com/lexzhukov/ngx-siema/issues"
   },
-  "homepage": "https://github.com/LexZhukov/ngx-siema#readme",
+  "homepage": "https://github.com/lexzhukov/ngx-siema#readme",
   "scripts": {
     "build": "rimraf dist && ngc -p tsconfig.json"
   },

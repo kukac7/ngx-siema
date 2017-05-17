@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/lexzhukov/ngx-siema.svg?branch=master)](https://travis-ci.org/LexZhukov/ngx-siema)
+[![Build Status](https://travis-ci.org/lexzhukov/ngx-siema.svg?branch=master)](https://travis-ci.org/lexzhukov/ngx-siema)
 
 # ngx-siema
 
@@ -15,9 +15,6 @@ Lightweight and simple carousel with no dependencies.
 or
 
 `yarn add ngx-siema`
-
-
-> - **ngx-siema** require installed **siema** package for correct work (`npm install siema --save`).
 
 ## Sample
 
@@ -45,43 +42,45 @@ import { NgxSiemaOptions } from 'ngx-siema';
 @Component({
   selector: 'sample',
   template: `
-      <ngx-siema ngxClass="my-siema"
-         [options]="options"
-         (prev)="prev($event)"
-         (next)="next($event)"
-         (goTo)="goTo($event)">
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--pink.svg">
-    	  </ngx-siema-slide>
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--yellow.svg">
-    	  </ngx-siema-slide>
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--pink.svg">
-    	  </ngx-siema-slide>
-      </ngx-siema>
-  `
+    <ngx-siema ngxClass="my-siema"
+        [options]="options"
+        (prev)="prev($event)"
+        (next)="next($event)"
+        (goTo)="goTo($event)">
+      <ngx-siema-slide>
+        <img src="assets/siema--pink.svg">
+      </ngx-siema-slide>
+      <ngx-siema-slide>
+        <img src="assets/siema--yellow.svg">
+      </ngx-siema-slide>
+      <ngx-siema-slide>
+        <img src="assets/siema--pink.svg">
+      </ngx-siema-slide>
+    </ngx-siema>
+  `,
 })
 export class Sample implements OnInit {
-    options: NgxSiemaOptions;
 
-    ngOnInit() {
-        this.options = {
-            duration: 200,
-            easing: 'ease-out',
-            perPage: 1,
-            startIndex: 0,
-            draggable: true,
-            threshold: 20,
-            loop: false,
-            onInit: () => {
-                // runs immediately after first initialization
-            },
-            onChange: () => {
-                // runs after slide change
-            }
-        };
-    }
+  options: NgxSiemaOptions;
+
+  ngOnInit() {
+    this.options = {
+        duration: 200,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        threshold: 20,
+        loop: false,
+        onInit: () => {
+            // runs immediately after first initialization
+        },
+        onChange: () => {
+            // runs after slide change
+        }
+    };
+  }
+
 }
 ```
 
@@ -94,36 +93,38 @@ import { NgxSiemaComponent } from 'ngx-siema';
 @Component({
   selector: 'sample',
   template: `
-      <ngx-siema>
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--pink.svg">
-    	  </ngx-siema-slide>
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--yellow.svg">
-    	  </ngx-siema-slide>
-    	  <ngx-siema-slide>
-    	    <img src="assets/siema--pink.svg">
-    	  </ngx-siema-slide>
-      </ngx-siema>
-      <button (click)="onPrev()">Prev</button>
-      <button (click)="onNext()">Next</button>
-      <button (click)="onGoTo(2)">GoTo</button>
-  `
+    <ngx-siema>
+      <ngx-siema-slide>
+        <img src="assets/siema--pink.svg">
+      </ngx-siema-slide>
+      <ngx-siema-slide>
+        <img src="assets/siema--yellow.svg">
+      </ngx-siema-slide>
+      <ngx-siema-slide>
+        <img src="assets/siema--pink.svg">
+      </ngx-siema-slide>
+    </ngx-siema>
+    <button (click)="onPrev()">Prev</button>
+    <button (click)="onNext()">Next</button>
+    <button (click)="onGoTo(2)">GoTo</button>
+  `,
 })
 export class Sample {
-    @ViewChild(NgxSiemaComponent) siema;
 
-    onPrev(numbers: number) {
-        this.siema.onPrev(numbers);
-    }
+  @ViewChild(NgxSiemaComponent) siema;
 
-    onNext(numbers: number) {
-        this.siema.onNext(numbers);
-    }
+  onPrev(numbers: number) {
+      this.siema.onPrev(numbers);
+  }
 
-    onGoTo(slide: number) {
-        this.siema.onGoTo(slide);
-    }
+  onNext(numbers: number) {
+      this.siema.onNext(numbers);
+  }
+
+  onGoTo(slide: number) {
+      this.siema.onGoTo(slide);
+  }
+
 }
 ```
 
