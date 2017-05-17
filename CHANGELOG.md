@@ -1,3 +1,20 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2017-05-17)
+
+### Features
+
+* **component:** add compatibility with siema 1.4.6
+* **component:** add `@Output() remove`
+* **component:** add `@Output() insert`
+* **component:** add `@Output() prepend`
+* **component:** add `@Output() append`
+* **component:** add `@Output() destroy`
+* **component:** add `@Output() currentSlide`
+
+### Breaking changes
+
+* **component:** `@Input() ngxClass` is replaced with `@Input() selector`
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-04-21)
 
