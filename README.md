@@ -104,8 +104,8 @@ import { NgxSiemaComponent } from 'ngx-siema';
         <img src="assets/siema--pink.svg">
       </ngx-siema-slide>
     </ngx-siema>
-    <button (click)="onPrev()">Prev</button>
-    <button (click)="onNext()">Next</button>
+    <button (click)="onPrev(1)">Prev</button>
+    <button (click)="onNext(1)">Next</button>
     <button (click)="onGoTo(2)">GoTo</button>
   `,
 })
