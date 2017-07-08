@@ -125,5 +125,4 @@ export class NgxSiemaComponent implements AfterViewInit, OnDestroy {
       currentSlide: this.instance.currentSlide,
     });
   }
-
 }

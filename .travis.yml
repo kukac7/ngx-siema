@@ -7,7 +7,7 @@ node_js:
 
 cache:
   directories:
-    - $HOME/.cache/yarn
+    - node_modules
 
 addons:
   apt:
@@ -19,9 +19,13 @@ addons:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
+  - npm i -g npm@latest
 
 install:
-  - yarn
+  - npm i
 
 script:
   - npm run build
+
+git:
+  depth: 1

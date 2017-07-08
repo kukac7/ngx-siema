@@ -4,17 +4,9 @@
 
 Lightweight and simple carousel with no dependencies.
 
-### Demo
-
-![ngx-siema](assets/img/demo.gif)
-
 ## Installation
 
-`npm install ngx-siema --save`
-
-or
-
-`yarn add ngx-siema`
+`npm i ngx-siema`
 
 ## Sample
 
