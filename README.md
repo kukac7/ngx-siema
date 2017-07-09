@@ -13,12 +13,12 @@ Lightweight and simple carousel with no dependencies.
 Include NgxSiemaModule in your main module:
 
 ```javascript
-import { NgxSiemaModule} from 'ngx-siema';
+import { NgxSiemaModule } from 'ngx-siema';
 
 @NgModule({
   // ...
   imports:      [
-    NgxSiemaModule
+    NgxSiemaModule.forRoot(),
   ],
   // ...
 })
@@ -28,17 +28,13 @@ export class AppModule { }
 Then use in your component:
 
 ```javascript
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxSiemaOptions } from 'ngx-siema';
 
 @Component({
   selector: 'sample',
   template: `
-    <ngx-siema ngxClass="my-siema"
-        [options]="options"
-        (prev)="prev($event)"
-        (next)="next($event)"
-        (goTo)="goTo($event)">
+    <ngx-siema [options]="options">
       <ngx-siema-slide>
         <img src="assets/siema--pink.svg">
       </ngx-siema-slide>
@@ -51,41 +47,37 @@ import { NgxSiemaOptions } from 'ngx-siema';
     </ngx-siema>
   `,
 })
-export class Sample implements OnInit {
+export class SampleComponent implements OnInit {
 
-  options: NgxSiemaOptions;
-
-  ngOnInit() {
-    this.options = {
-        duration: 200,
-        easing: 'ease-out',
-        perPage: 1,
-        startIndex: 0,
-        draggable: true,
-        threshold: 20,
-        loop: false,
-        onInit: () => {
-            // runs immediately after first initialization
-        },
-        onChange: () => {
-            // runs after slide change
-        }
-    };
-  }
-
+  options: NgxSiemaOptions = {
+    selector: '.siema',
+    duration: 200,
+    easing: 'ease-out',
+    perPage: 1,
+    startIndex: 0,
+    draggable: true,
+    threshold: 20,
+    loop: false,
+    onInit: () => {
+      // runs immediately after first initialization
+    },
+    onChange: () => {
+      // runs after slide change
+    },
+  };
 }
 ```
 
 Example of usage with the navigation buttons:
 
 ```javascript
-import { Component, ViewChild } from '@angular/core';
-import { NgxSiemaComponent } from 'ngx-siema';
+import { Component } from '@angular/core';
+import { NgxSiemaService } from 'ngx-siema';
 
 @Component({
   selector: 'sample',
   template: `
-    <ngx-siema>
+    <ngx-siema [options]="options">
       <ngx-siema-slide>
         <img src="assets/siema--pink.svg">
       </ngx-siema-slide>
@@ -96,27 +88,87 @@ import { NgxSiemaComponent } from 'ngx-siema';
         <img src="assets/siema--pink.svg">
       </ngx-siema-slide>
     </ngx-siema>
-    <button (click)="onPrev(1)">Prev</button>
-    <button (click)="onNext(1)">Next</button>
-    <button (click)="onGoTo(2)">GoTo</button>
+    <button type="button" (click)="prev()">Prev</button>
+    <button type="button" (click)="next()">Next</button>
+    <button type="button" (click)="goTo()">GoTo</button>
   `,
 })
-export class Sample {
+export class SampleComponent {
 
-  @ViewChild(NgxSiemaComponent) siema;
+  options: NgxSiemaOptions = {
+    selector: '.siema',
+  };
 
-  onPrev(numbers: number) {
-      this.siema.onPrev(numbers);
+  constructor(private ngxSiemaService: NgxSiemaService) {
   }
 
-  onNext(numbers: number) {
-      this.siema.onNext(numbers);
+  prev() {
+    this.ngxSiemaService.prev(1)
+      .subscribe((data: any) => console.log(data));
   }
 
-  onGoTo(slide: number) {
-      this.siema.onGoTo(slide);
+  next() {
+    this.ngxSiemaService.next(1)
+      .subscribe((data: any) => console.log(data));
   }
 
+  goTo() {
+    this.ngxSiemaService.goTo(1)
+      .subscribe((data: any) => console.log(data));
+  }
+}
+```
+
+Example of usage with multiple instances of ngx-siema
+
+```javascript
+import { Component } from '@angular/core';
+import { NgxSiemaOptions, NgxSiemaService } from 'ngx-siema';
+
+@Component({
+  selector: 'sample',
+  template: `
+    <ngx-siema [options]="options">
+      <ngx-siema-slide *ngFor="let n of slides">{{ n }}</ngx-siema-slide>
+    </ngx-siema>
+
+    <ngx-siema [options]="options2">
+      <ngx-siema-slide *ngFor="let n of slides">{{ n }}</ngx-siema-slide>
+    </ngx-siema>
+
+    <button type="button" (click)="next()">Next</button>
+    <button type="button" (click)="prev()">Prev</button>
+  `,
+})
+export class SampleComponent {
+
+  options: NgxSiemaOptions = {
+    selector: '.siema',
+  };
+
+  options2: NgxSiemaOptions = {
+    selector: '.siema2',
+  };
+
+  slides: number[] = [1, 2, 3, 4, 5];
+
+  constructor(private ngxSiemaService: NgxSiemaService) {
+  }
+
+  next() {
+    this.ngxSiemaService.next(1)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+  }
+
+  prev() {
+    // Use the prev function only for ngx-siema instance with selector '.siema'
+    this.ngxSiemaService.prev(1, '.siema')
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+  }
 }
 ```
 

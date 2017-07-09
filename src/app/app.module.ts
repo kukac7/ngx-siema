@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    NgxSiemaModule,
+    NgxSiemaModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

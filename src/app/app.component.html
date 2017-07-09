@@ -1,5 +1,10 @@
-<ngx-siema>
-  <ngx-siema-slide>1</ngx-siema-slide>
-  <ngx-siema-slide>2</ngx-siema-slide>
-  <ngx-siema-slide>3</ngx-siema-slide>
+<ngx-siema [options]="options">
+  <ngx-siema-slide *ngFor="let n of slides">{{ n }}</ngx-siema-slide>
 </ngx-siema>
+
+<ngx-siema [options]="options2">
+  <ngx-siema-slide *ngFor="let n of slides">{{ n }}</ngx-siema-slide>
+</ngx-siema>
+
+<button type="button" (click)="next()">Next</button>
+<button type="button" (click)="prev()">Prev</button>
