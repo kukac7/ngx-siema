@@ -1,5 +1,26 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/lexzhukov/ngx-siema/compare/1.2.0...2.0.0) (2017-07-09)
+
+
+### Bug Fixes
+
+* **component:** fix #18 ([24d6655](https://github.com/lexzhukov/ngx-siema/commit/24d6655)), closes [#18](https://github.com/lexzhukov/ngx-siema/issues/18)
+* **component:** fix #45 ([f0a516b](https://github.com/lexzhukov/ngx-siema/commit/f0a516b)), closes [#45](https://github.com/lexzhukov/ngx-siema/issues/45)
+* **component:** fix #49 ([f0a516b](https://github.com/lexzhukov/ngx-siema/commit/f0a516b)), closes [#49](https://github.com/lexzhukov/ngx-siema/issues/49)
+
+
+### Features
+
+* **component:** add possibility of use multiple instances of ngx-siema ([f0a516b](https://github.com/lexzhukov/ngx-siema/commit/f0a516b)), closes [#50](https://github.com/lexzhukov/ngx-siema/issues/50):tada:
+
+
+### Breaking changes
+
+* **component:** `@Input() selector` is removed. Use `selector` property from `NgxSiemaOptions` options
+* **component:** added `NgxSiemaService` for using with multiple instances of ngx-siema
+
 <a name="1.2.0"></a>
-# 1.2.0 (2017-05-17)
+# [1.2.0](https://github.com/lexzhukov/ngx-siema/compare/1.1.0...1.2.0) (2017-05-17)
 
 ### Features
 
@@ -16,7 +37,7 @@
 * **component:** `@Input() ngxClass` is replaced with `@Input() selector`
 
 <a name="1.1.0"></a>
-# 1.1.0 (2017-04-21)
+# [1.1.0](https://github.com/lexzhukov/ngx-siema/compare/1.0.0...1.1.0) (2017-04-21)
 
 ### Bud fixes
 
